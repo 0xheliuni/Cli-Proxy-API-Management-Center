@@ -1397,5 +1397,103 @@
     "modelCatalog": {
       "notLoaded": "Не загружено"
     }
+  },
+  "imageQueue": {
+    "tabs": {
+      "providers": "AI провайдеры",
+      "imageQueue": "Очередь изображений"
+    },
+    "title": "Очередь изображений",
+    "summary": "{{count}} канал(ов)",
+    "status": {
+      "running": "Работает",
+      "stopped": "Остановлено",
+      "unknown": "Статус неизвестен"
+    },
+    "live": {
+      "waiting": "Ожидание данных…",
+      "now": "Live · только что",
+      "ago": "Live · {{sec}} с назад"
+    },
+    "actions": {
+      "queueConfig": "Настройки очереди",
+      "newChannel": "+ Канал",
+      "saving": "Сохранение..."
+    },
+    "empty": {
+      "title": "Каналы изображений не настроены",
+      "description": "Добавьте канал для обработки запросов на генерацию изображений.",
+      "noGroups": "Группы ещё не настроены. Откройте Queue Config."
+    },
+    "columns": {
+      "id": "ID",
+      "type": "Тип",
+      "baseUrl": "Base URL",
+      "models": "Модели",
+      "rpm": "RPM (текущий / лимит)",
+      "health": "Состояние",
+      "actions": "Действия"
+    },
+    "health": {
+      "cooling": "Остывает",
+      "coolingTip": "Остывает · подряд ошибок {{fails}}",
+      "recoveringTip": "Недавних ошибок {{fails}}"
+    },
+    "sheet": {
+      "titleCreate": "Добавить канал",
+      "titleEdit": "Редактировать канал"
+    },
+    "fields": {
+      "id": "ID канала",
+      "group": "Группа",
+      "groupPlaceholder": "Выберите группу",
+      "type": "Тип",
+      "baseUrl": "Base URL",
+      "apiKey": "API Key",
+      "models": "Модели (через запятую или пробел)",
+      "maxRpm": "Max RPM (0 = без лимита)",
+      "proxyUrl": "Прокси (необязательно)",
+      "headers": "Заголовки (по одной паре Key: Value на строку)"
+    },
+    "errors": {
+      "idRequired": "Требуется ID",
+      "groupRequired": "Требуется группа",
+      "noPoolDefined": "Сначала создайте группу в Queue Config.",
+      "baseUrlRequired": "Требуется Base URL",
+      "apiKeyRequired": "Требуется API Key",
+      "modelsRequired": "Нужно указать хотя бы одну модель",
+      "maxRpmInvalid": "Должно быть >= 0"
+    },
+    "toast": {
+      "created": "Канал создан",
+      "updated": "Канал обновлён",
+      "deleted": "Канал удалён",
+      "saveFailed": "Не удалось сохранить",
+      "deleteFailed": "Не удалось удалить",
+      "configSaved": "Настройки очереди сохранены",
+      "configSaveFailed": "Не удалось сохранить"
+    },
+    "confirm": {
+      "deleteTitle": "Удалить канал изображений",
+      "deleteMessage": "Удалить канал \"{{id}}\"? Действие необратимо."
+    },
+    "queueConfig": {
+      "title": "Настройки очереди изображений",
+      "enable": "Включить очередь изображений",
+      "redisAddr": "Адрес Redis",
+      "redisDb": "Redis DB",
+      "redisPassword": "Пароль Redis",
+      "keyPrefix": "Префикс ключей Redis",
+      "workerConcurrency": "Воркеры",
+      "workerConcurrencyHint": "0 = авто",
+      "maxWaitSeconds": "Макс. ожидание (сек)",
+      "imageModels": "Модели изображений (по одной на строку)",
+      "sectionRuntime": "Runtime",
+      "groups": "Группы",
+      "addGroup": "+ Добавить группу",
+      "removeGroup": "Удалить",
+      "noGroups": "Группы ещё не настроены.",
+      "groupName": "Имя группы"
+    }
   }
 }

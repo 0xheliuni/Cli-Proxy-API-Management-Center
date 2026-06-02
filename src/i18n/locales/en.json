@@ -1400,5 +1400,103 @@
     "modelCatalog": {
       "notLoaded": "Not loaded"
     }
+  },
+  "imageQueue": {
+    "tabs": {
+      "providers": "AI Providers",
+      "imageQueue": "Image Queue"
+    },
+    "title": "Image Queue",
+    "summary": "{{count}} channel(s)",
+    "status": {
+      "running": "Running",
+      "stopped": "Stopped",
+      "unknown": "Status unknown"
+    },
+    "live": {
+      "waiting": "Waiting for stats…",
+      "now": "Live · just now",
+      "ago": "Live · updated {{sec}}s ago"
+    },
+    "actions": {
+      "queueConfig": "Queue Config",
+      "newChannel": "+ Channel",
+      "saving": "Saving..."
+    },
+    "empty": {
+      "title": "No image channels configured",
+      "description": "Add a channel to dispatch image-generation requests.",
+      "noGroups": "No groups configured yet. Open Queue Config to create one."
+    },
+    "columns": {
+      "id": "ID",
+      "type": "Type",
+      "baseUrl": "Base URL",
+      "models": "Models",
+      "rpm": "RPM (now / cap)",
+      "health": "Health",
+      "actions": "Actions"
+    },
+    "health": {
+      "cooling": "Cooling",
+      "coolingTip": "Cooling down · consecutive fails={{fails}}",
+      "recoveringTip": "Recently failed {{fails}}x"
+    },
+    "sheet": {
+      "titleCreate": "Add Image Channel",
+      "titleEdit": "Edit Image Channel"
+    },
+    "fields": {
+      "id": "Channel ID",
+      "group": "Group",
+      "groupPlaceholder": "Select a group",
+      "type": "Type",
+      "baseUrl": "Base URL",
+      "apiKey": "API Key",
+      "models": "Models (comma or whitespace separated)",
+      "maxRpm": "Max RPM (0 = unlimited)",
+      "proxyUrl": "Proxy URL (optional)",
+      "headers": "Headers (one Key: Value per line)"
+    },
+    "errors": {
+      "idRequired": "ID is required",
+      "groupRequired": "Group is required",
+      "noPoolDefined": "Define a group in Queue Config first.",
+      "baseUrlRequired": "Base URL is required",
+      "apiKeyRequired": "API key is required",
+      "modelsRequired": "At least one model is required",
+      "maxRpmInvalid": "Must be >= 0"
+    },
+    "toast": {
+      "created": "Channel created",
+      "updated": "Channel updated",
+      "deleted": "Channel deleted",
+      "saveFailed": "Save failed",
+      "deleteFailed": "Delete failed",
+      "configSaved": "Queue config saved",
+      "configSaveFailed": "Save failed"
+    },
+    "confirm": {
+      "deleteTitle": "Delete image channel",
+      "deleteMessage": "Delete channel \"{{id}}\"? This cannot be undone."
+    },
+    "queueConfig": {
+      "title": "Image Queue Runtime Config",
+      "enable": "Enable image queue",
+      "redisAddr": "Redis address",
+      "redisDb": "Redis DB",
+      "redisPassword": "Redis password",
+      "keyPrefix": "Redis key prefix",
+      "workerConcurrency": "Worker concurrency",
+      "workerConcurrencyHint": "0 = auto",
+      "maxWaitSeconds": "Max wait seconds",
+      "imageModels": "Image models (one per line)",
+      "sectionRuntime": "Runtime",
+      "groups": "Groups",
+      "addGroup": "+ Add Group",
+      "removeGroup": "Delete",
+      "noGroups": "No groups configured yet.",
+      "groupName": "Group name"
+    }
   }
 }

@@ -18,7 +18,10 @@ import type {
 import { ProviderSheet, type ProviderSheetHandle } from './sheets/ProviderSheet';
 import { useProviderWorkbench } from './useProviderWorkbench';
 import type { ProviderBrand, ProviderResource } from './types';
+import { ImageQueueWorkbench } from '../imageQueue/ImageQueueWorkbench';
 import styles from './ProvidersWorkbenchPage.module.scss';
+
+type WorkbenchMode = 'providers' | 'imageQueue';
 
 type SheetMode = 'detail' | 'create' | 'edit';
 
@@ -68,6 +71,7 @@ export function ProvidersWorkbenchPage() {
   const isCurrentLayer = pageTransitionLayer ? pageTransitionLayer.status === 'current' : true;
 
   const workbench = useProviderWorkbench();
+  const [mode, setMode] = useState<WorkbenchMode>('providers');
   const [activeBrand, setActiveBrand] = useState<ProviderBrand>('gemini');
   const [filter, setFilter] = useState('');
   const [openaiSortBy, setOpenaiSortBy] = useState<OpenAISortBy>('name');
@@ -317,10 +321,68 @@ export function ProvidersWorkbenchPage() {
     closeSheet();
   }, [closeSheet, showNotification, t]);
 
+  // Top-level mode tab strip — Providers (default) vs Image Queue.
+  const modeTabs = (
+    <div
+      style={{
+        display: 'inline-flex',
+        gap: 4,
+        padding: 4,
+        marginBottom: 12,
+        background: 'var(--surface-2, #f4f4f4)',
+        borderRadius: 8,
+        border: '1px solid var(--border-color, #e0e0e0)',
+      }}
+      role="tablist"
+      aria-label="Workbench mode"
+    >
+      {([
+        { key: 'providers', label: t('imageQueue.tabs.providers') ?? 'AI Providers' },
+        { key: 'imageQueue', label: t('imageQueue.tabs.imageQueue') ?? 'Image Queue' },
+      ] as { key: WorkbenchMode; label: string }[]).map((tab) => {
+        const isActive = mode === tab.key;
+        return (
+          <button
+            key={tab.key}
+            role="tab"
+            aria-selected={isActive}
+            onClick={() => setMode(tab.key)}
+            style={{
+              border: 'none',
+              padding: '6px 14px',
+              borderRadius: 6,
+              cursor: 'pointer',
+              fontSize: 13,
+              fontWeight: isActive ? 600 : 500,
+              background: isActive ? 'var(--surface-1, #fff)' : 'transparent',
+              color: isActive ? 'var(--text-primary, #111)' : 'var(--text-secondary, #555)',
+              boxShadow: isActive ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+              transition: 'background 0.15s ease',
+            }}
+          >
+            {tab.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+
+  // When Image Queue mode is active, render the isolated workbench instead
+  // of the brand-driven provider grid.
+  if (mode === 'imageQueue') {
+    return (
+      <div className={styles.page}>
+        {modeTabs}
+        <ImageQueueWorkbench active={mode === 'imageQueue'} />
+      </div>
+    );
+  }
+
   // 加载状态
   if (!workbench.snapshot && workbench.isPending) {
     return (
       <div className={styles.page}>
+        {modeTabs}
         <Skeleton height={120} />
         <div className={styles.layout}>
           <Skeleton height={420} />
@@ -351,6 +413,7 @@ export function ProvidersWorkbenchPage() {
 
   return (
     <div className={styles.page}>
+      {modeTabs}
       <ProviderHeaderCard
         totalActive={totalActive}
         totalResources={totalResources}

@@ -1400,5 +1400,103 @@
     "modelCatalog": {
       "notLoaded": "未加载"
     }
+  },
+  "imageQueue": {
+    "tabs": {
+      "providers": "AI 供应商",
+      "imageQueue": "图像队列"
+    },
+    "title": "图像队列",
+    "summary": "{{count}} 个渠道",
+    "status": {
+      "running": "运行中",
+      "stopped": "已停止",
+      "unknown": "状态未知"
+    },
+    "live": {
+      "waiting": "等待数据…",
+      "now": "实时 · 刚刚",
+      "ago": "实时 · {{sec}}s 前更新"
+    },
+    "actions": {
+      "queueConfig": "队列配置",
+      "newChannel": "+ 渠道",
+      "saving": "保存中..."
+    },
+    "empty": {
+      "title": "尚未配置图像渠道",
+      "description": "添加渠道以分发图像生成请求。",
+      "noGroups": "尚未配置分组。请打开 Queue Config 创建。"
+    },
+    "columns": {
+      "id": "ID",
+      "type": "类型",
+      "baseUrl": "Base URL",
+      "models": "模型",
+      "rpm": "RPM（当前 / 上限）",
+      "health": "健康度",
+      "actions": "操作"
+    },
+    "health": {
+      "cooling": "冷却中",
+      "coolingTip": "冷却中 · 连续失败 {{fails}} 次",
+      "recoveringTip": "最近失败 {{fails}} 次"
+    },
+    "sheet": {
+      "titleCreate": "新增图像渠道",
+      "titleEdit": "编辑图像渠道"
+    },
+    "fields": {
+      "id": "渠道 ID",
+      "group": "所属分组",
+      "groupPlaceholder": "选择一个分组",
+      "type": "类型",
+      "baseUrl": "Base URL",
+      "apiKey": "API Key",
+      "models": "模型（逗号或空白分隔）",
+      "maxRpm": "Max RPM（0 = 不限）",
+      "proxyUrl": "代理地址（可选）",
+      "headers": "Headers（每行一条 Key: Value）"
+    },
+    "errors": {
+      "idRequired": "ID 必填",
+      "groupRequired": "分组必填",
+      "noPoolDefined": "请先在 Queue Config 中创建分组。",
+      "baseUrlRequired": "Base URL 必填",
+      "apiKeyRequired": "API Key 必填",
+      "modelsRequired": "至少配置一个模型",
+      "maxRpmInvalid": "必须 >= 0"
+    },
+    "toast": {
+      "created": "渠道已创建",
+      "updated": "渠道已更新",
+      "deleted": "渠道已删除",
+      "saveFailed": "保存失败",
+      "deleteFailed": "删除失败",
+      "configSaved": "队列配置已保存",
+      "configSaveFailed": "保存失败"
+    },
+    "confirm": {
+      "deleteTitle": "删除图像渠道",
+      "deleteMessage": "确认删除渠道 \"{{id}}\"？此操作不可撤销。"
+    },
+    "queueConfig": {
+      "title": "图像队列运行时配置",
+      "enable": "启用图像队列",
+      "redisAddr": "Redis 地址",
+      "redisDb": "Redis DB",
+      "redisPassword": "Redis 密码",
+      "keyPrefix": "Redis Key 前缀",
+      "workerConcurrency": "Worker 并发",
+      "workerConcurrencyHint": "0 = 自动",
+      "maxWaitSeconds": "最长挂起秒数",
+      "imageModels": "图像模型（每行一个）",
+      "sectionRuntime": "运行时",
+      "groups": "分组（Groups）",
+      "addGroup": "+ 添加分组",
+      "removeGroup": "删除",
+      "noGroups": "尚未配置任何分组。",
+      "groupName": "分组名"
+    }
   }
 }
